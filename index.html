@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <meta name="description" content="UbiCat - La red social para proteger a los que no tienen voz">
-    <title>UbiCat - Conectando mascotas con su gente</title>
+    <meta name="description" content="UbiCat conecta perros perdidos, en rescate, adopción o tránsito con personas que pueden ayudarlos.">
+    <title>UbiCat — Conectá con perros que necesitan una mano</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,600&family=Source+Sans+3:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -15,266 +15,339 @@
     <!-- ===== HEADER ===== -->
     <header class="header" id="header">
         <div class="container header__inner">
-            <a href="#" class="logo" aria-label="UbiCat - inicio">
-                <img src="logo.png" alt="" class="logo__img">
+            <a href="#" class="logo" aria-label="UbiCat — inicio">
+                <span class="logo__frame">
+                    <img src="logo.jpg" alt="UbiCat" class="logo__img" width="72" height="72">
+                </span>
             </a>
             <nav class="header__nav" aria-label="Navegación principal">
                 <a href="#proceso">Cómo funciona</a>
-                <a href="#funcionalidades">Funciones</a>
-                <a href="#testimonios">Historias</a>
-                <a href="#faq">Preguntas frecuentes</a>
+                <a href="#funciones">Funciones</a>
+                <a href="#impacto">Comunidad</a>
+                <a href="#faq">Preguntas</a>
             </nav>
-            <a href="#registro" class="btn btn--primary btn--sm">Registrarse</a>
+            <a href="#registro" class="btn btn--primary btn--sm">Registrarme</a>
             <button class="nav-toggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="mobile-nav">
                 <span></span><span></span><span></span>
             </button>
         </div>
-        <!-- Menú mobile -->
         <div class="mobile-nav" id="mobile-nav" hidden>
-            <nav>
+            <nav aria-label="Navegación mobile">
                 <a href="#proceso">Cómo funciona</a>
-                <a href="#funcionalidades">Funciones</a>
-                <a href="#testimonios">Historias</a>
-                <a href="#faq">Preguntas frecuentes</a>
+                <a href="#funciones">Funciones</a>
+                <a href="#impacto">Comunidad</a>
+                <a href="#faq">Preguntas</a>
             </nav>
-            <a href="#registro" class="btn btn--primary btn--full">Registrarse gratis</a>
+            <a href="#registro" class="btn btn--primary btn--full">Registrarme</a>
         </div>
     </header>
 
-    <!-- ===== HERO ===== -->
-    <section class="hero">
-        <div class="hero__bg-pattern" aria-hidden="true"></div>
-        <div class="container hero__inner">
-            <div class="hero__content">
-                <p class="hero__eyebrow">Red colaborativa de cuidado animal</p>
-                <h1 class="hero__title">
-                    Cada mascota merece<br>
-                    <em>volver a casa.</em>
-                </h1>
-                <p class="hero__desc">Reportá mascotas perdidas, encontrá a sus familias, registrá avistamientos y adoptá con responsabilidad. Todo en una sola app, con verificaciones que garantizan seguridad.</p>
-                <div class="hero__actions">
-                    <a href="#registro" class="btn btn--primary btn--lg">Empezá ahora</a>
-                    <a href="#proceso" class="btn btn--ghost btn--lg">Conocé más</a>
-                </div>
-                <ul class="hero__badges" aria-label="Funcionalidades destacadas">
-                    <li>Reporte en 30 segundos</li>
-                    <li>Geolocalización precisa</li>
-                    <li>Comunidad verificada</li>
-                </ul>
-            </div>
-            <div class="hero__visual" aria-hidden="true">
-                <div class="hero__img-frame">
-                    <div class="hero__img-placeholder">
-                        <img src="image1.png" alt="Perro y gato juntos" width="600" height="750" loading="eager" onerror="this.parentNode.innerHTML='<div class=\'img-fallback\'><span>UbiCat</span></div>'">
+    <main>
+
+        <!-- ===== HERO — Carteles de las 4 funciones (sin navegación) ===== -->
+        <section class="hero" aria-labelledby="hero-title">
+            <div class="hero__bg" aria-hidden="true"></div>
+            <div class="container hero__inner">
+                <div class="hero__content">
+                    <p class="hero__eyebrow">Perdido · Adopción · Tránsito · Rescate</p>
+                    <h1 class="hero__title" id="hero-title">
+                        Hay un perro esperando<br>
+                        <em>que alguien lo vea.</em>
+                    </h1>
+                    <p class="hero__desc">UbiCat tiene cuatro botones, cada uno para una situación distinta. Elegís el que corresponda y la app te guía desde ahí.</p>
+
+                    <!-- Carteles informativos — replican los botones de la app, no son clicables -->
+                    <div class="hero__app-buttons" role="list" aria-label="Las cuatro funciones de la app">
+                        <span class="app-btn app-btn--lost" role="listitem">
+                            <svg class="app-btn__icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+                            Perdido
+                        </span>
+                        <span class="app-btn app-btn--adopt" role="listitem">
+                            <svg class="app-btn__icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+                            Adopción
+                        </span>
+                        <span class="app-btn app-btn--transit" role="listitem">
+                            <svg class="app-btn__icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+                            Tránsito
+                        </span>
+                        <span class="app-btn app-btn--rescue" role="listitem">
+                            <svg class="app-btn__icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                            Rescate
+                        </span>
+                    </div>
+
+                    <div class="hero__cta-row">
+                        <a href="#registro" class="btn btn--primary btn--lg">Registrarme gratis</a>
+                        <a href="#descargar" class="btn btn--outline btn--lg">Descargar la app</a>
                     </div>
                 </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ===== CÓMO FUNCIONA ===== -->
-    <section class="proceso" id="proceso">
-        <div class="container">
-            <header class="section-header">
-                <p class="section-eyebrow">Cómo funciona</p>
-                <h2 class="section-title">Cuatro pasos para<br>cuidar a un animal</h2>
-            </header>
-            <div class="proceso__track">
-                <div class="proceso__line" aria-hidden="true"></div>
-                <ol class="proceso__steps">
-                    <li class="proceso-step">
-                        <div class="proceso-step__num" aria-hidden="true">01</div>
-                        <div class="proceso-step__body">
-                            <h3>Creá tu cuenta</h3>
-                            <p>Registrate con tu email o redes sociales. Verificamos tu identidad para garantizar una comunidad segura.</p>
+                <div class="hero__visual">
+                    <figure class="hero__figure">
+                        <div class="hero__img-frame">
+                            <img
+                                src="image1.png"
+                                alt="Perro mestizo de pelaje marrón mirando a cámara con expresión amable"
+                                width="600"
+                                height="750"
+                                loading="eager"
+                                class="hero__img"
+                            >
                         </div>
-                    </li>
-                    <li class="proceso-step">
-                        <div class="proceso-step__num" aria-hidden="true">02</div>
-                        <div class="proceso-step__body">
-                            <h3>Publicá o reportá</h3>
-                            <p>Subí una foto, marcá la ubicación y describí la situación. Podés reportar pérdida, hallazgo o avistamiento.</p>
+                    </figure>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== CÓMO FUNCIONA — Resumen de las 4 funciones ===== -->
+        <section class="proceso" id="proceso" aria-labelledby="proceso-title">
+            <div class="container">
+                <header class="section-header reveal">
+                    <p class="section-eyebrow">Cómo funciona</p>
+                    <h2 class="section-title" id="proceso-title">Cuatro botones,<br>cuatro formas de ayudar</h2>
+                    <p class="section-desc">Cada botón abre un flujo distinto dentro de la app. No hay un solo camino: usás el que necesites en ese momento.</p>
+                </header>
+                <div class="proceso__grid">
+                    <article class="proceso-card reveal">
+                        <span class="app-btn app-btn--lost app-btn--sm">Perdido</span>
+                        <h3>Tu perro se perdió</h3>
+                        <p>Publicás la alerta con foto, datos y última zona vista. Personas cercanas reciben la notificación y pueden reportar avistamientos.</p>
+                    </article>
+                    <article class="proceso-card reveal">
+                        <span class="app-btn app-btn--adopt app-btn--sm">Adopción</span>
+                        <h3>Buscás adoptar</h3>
+                        <p>Explorás perfiles de perros que buscan familia en tu zona. Ves fotos, edad y condiciones, y contactás al publicador desde la app.</p>
+                    </article>
+                    <article class="proceso-card reveal">
+                        <span class="app-btn app-btn--transit app-btn--sm">Tránsito</span>
+                        <h3>Ofrecés tránsito</h3>
+                        <p>Indicás que podés acoger temporalmente a un perro. Marcás disponibilidad y condiciones para ayudar mientras busca hogar definitivo.</p>
+                    </article>
+                    <article class="proceso-card reveal">
+                        <span class="app-btn app-btn--rescue app-btn--sm">Rescate</span>
+                        <h3>Encontraste un perro</h3>
+                        <p>Publicás un rescate con foto y ubicación exacta. Conectás con quien pueda trasladarlo, ofrecer tránsito o identificar al dueño.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== FUNCIONES — Paso a paso de cada botón ===== -->
+        <section class="funciones" id="funciones" aria-labelledby="funciones-title">
+            <div class="container">
+                <header class="section-header reveal">
+                    <p class="section-eyebrow">Dentro de la app</p>
+                    <h2 class="section-title" id="funciones-title">Así funciona cada botón</h2>
+                    <p class="section-desc">Un recorrido claro por función. Todo esto ocurre adentro de UbiCat, una vez que te registrás o descargás la app.</p>
+                </header>
+
+                <div class="funciones__list">
+
+                    <!-- Perdido -->
+                    <article class="funcion-block reveal">
+                        <div class="funcion-block__header">
+                            <span class="app-btn app-btn--lost">Perdido</span>
+                            <h3>Cuando tu perro se escapó o no volvió</h3>
                         </div>
-                    </li>
-                    <li class="proceso-step">
-                        <div class="proceso-step__num" aria-hidden="true">03</div>
-                        <div class="proceso-step__body">
-                            <h3>Activá la red</h3>
-                            <p>Tu alerta llega a usuarios, refugios y voluntarios cercanos. Todos colaboran en tiempo real.</p>
+                        <div class="funcion-block__body">
+                            <ol class="funcion-steps">
+                                <li>Tocás el botón rojo <strong>Perdido</strong> en la pantalla principal.</li>
+                                <li>Subís una foto clara, completás raza, tamaño y la última zona donde lo viste.</li>
+                                <li>La app genera una alerta geolocalizada para usuarios cercanos.</li>
+                                <li>Recibís avisos si alguien lo avista o tiene información.</li>
+                            </ol>
+                            <div class="funcion-block__visual">
+                                <img src="image2.png" alt="Ilustración: publicar alerta de perro perdido" width="400" height="320" loading="lazy">
+                            </div>
                         </div>
-                    </li>
-                    <li class="proceso-step">
-                        <div class="proceso-step__num" aria-hidden="true">04</div>
-                        <div class="proceso-step__body">
-                            <h3>Reencontrá o adoptá</h3>
-                            <p>Coordiná la entrega segura o iniciá un proceso de adopción responsable con seguimiento.</p>
+                    </article>
+
+                    <!-- Adopción -->
+                    <article class="funcion-block reveal">
+                        <div class="funcion-block__header">
+                            <span class="app-btn app-btn--adopt">Adopción</span>
+                            <h3>Cuando querés sumar un compañero a tu familia</h3>
                         </div>
-                    </li>
-                </ol>
-            </div>
-        </div>
-    </section>
+                        <div class="funcion-block__body">
+                            <ol class="funcion-steps">
+                                <li>Tocás el botón verde <strong>Adopción</strong> para ver perfiles disponibles.</li>
+                                <li>Filtrás por zona, tamaño o edad según lo que buscás.</li>
+                                <li>Revisás la ficha de cada perro: fotos, historia y requisitos del hogar.</li>
+                                <li>Contactás al publicador por chat para coordinar una visita.</li>
+                            </ol>
+                            <div class="funcion-block__visual">
+                                <img src="image5.png" alt="Ilustración: explorar perfiles de adopción" width="400" height="320" loading="lazy">
+                            </div>
+                        </div>
+                    </article>
 
-    <!-- ===== FUNCIONALIDADES ===== -->
-    <section class="funcionalidades" id="funcionalidades">
-        <div class="container">
-            <header class="section-header">
-                <p class="section-eyebrow">Qué podés hacer</p>
-                <h2 class="section-title">Herramientas que salvan vidas</h2>
-            </header>
-            <div class="funcionalidades__grid">
-                <article class="func-card func-card--red">
-                    <div class="func-card__circle"></div>
-                    <h3>Reportá una pérdida</h3>
-                    <p>Publicá en segundos. La app notifica al instante a toda la comunidad cercana.</p>
-                </article>
-                <article class="func-card func-card--green">
-                    <div class="func-card__circle"></div>
-                    <h3>Encontraste un animal</h3>
-                    <p>Publicá el hallazgo y ayudá a que vuelva a su familia. Chat directo y seguro.</p>
-                </article>
-                <article class="func-card func-card--orange">
-                    <div class="func-card__circle"></div>
-                    <h3>Avistamiento en mapa</h3>
-                    <p>Viste un animal perdido. Marcá el punto y ayudá a trazar su recorrido.</p>
-                </article>
-                <article class="func-card func-card--blue">
-                    <div class="func-card__circle"></div>
-                    <h3>Adopción responsable</h3>
-                    <p>Perfiles verificados de animales en adopción. Encontrá a tu nuevo compañero.</p>
-                </article>
-            </div>
-        </div>
-    </section>
+                    <!-- Tránsito -->
+                    <article class="funcion-block reveal">
+                        <div class="funcion-block__header">
+                            <span class="app-btn app-btn--transit">Tránsito</span>
+                            <h3>Cuando podés acoger a un perro temporalmente</h3>
+                        </div>
+                        <div class="funcion-block__body">
+                            <ol class="funcion-steps">
+                                <li>Tocás el botón azul <strong>Tránsito</strong> y completás tu disponibilidad.</li>
+                                <li>Indicás cuánto tiempo podés recibirlo y condiciones de tu hogar.</li>
+                                <li>La app te muestra perros que necesitan tránsito cerca tuyo.</li>
+                                <li>Coordinás la entrega y el cuidado con quien publicó el caso.</li>
+                            </ol>
+                            <div class="funcion-block__visual">
+                                <img src="image4.png" alt="Ilustración: ofrecer tránsito temporal" width="400" height="320" loading="lazy">
+                            </div>
+                        </div>
+                    </article>
 
-    <!-- ===== TESTIMONIOS ===== -->
-    <section class="testimonios" id="testimonios">
-        <div class="container">
-            <header class="section-header section-header--light">
-                <p class="section-eyebrow">Historias reales</p>
-                <h2 class="section-title">Ellos ya se reencontraron</h2>
-            </header>
-            <div class="testimonios__grid">
-                <blockquote class="testimonio-card">
-                    <p>"Gracias a UbiCat encontramos a Toby en menos de 3 horas. La comunidad se movilizó rapidísimo."</p>
-                    <footer><cite>— Florencia, Ramos Mejía</cite></footer>
-                </blockquote>
-                <blockquote class="testimonio-card">
-                    <p>"Rescaté un gatito y en dos días ya tenía dueño. La verificación me dio tranquilidad."</p>
-                    <footer><cite>— Matías, Castelar</cite></footer>
-                </blockquote>
-                <blockquote class="testimonio-card">
-                    <p>"Adopté a Simón con seguimiento post-adopción. Ahora es parte de la familia."</p>
-                    <footer><cite>— Carla, Ituzaingó</cite></footer>
-                </blockquote>
-            </div>
-        </div>
-    </section>
+                    <!-- Rescate -->
+                    <article class="funcion-block reveal">
+                        <div class="funcion-block__header">
+                            <span class="app-btn app-btn--rescue">Rescate</span>
+                            <h3>Cuando encontraste un perro en la calle</h3>
+                        </div>
+                        <div class="funcion-block__body">
+                            <ol class="funcion-steps">
+                                <li>Tocás el botón naranja <strong>Rescate</strong> y subís una foto del perro.</li>
+                                <li>Marcás la ubicación exacta donde lo encontraste.</li>
+                                <li>Describís su estado y si necesita traslado o atención urgente.</li>
+                                <li>Personas con tránsito o refugios cercanos pueden ofrecer ayuda.</li>
+                            </ol>
+                            <div class="funcion-block__visual">
+                                <img src="image3.png" alt="Ilustración: reportar un perro encontrado en la calle" width="400" height="320" loading="lazy">
+                            </div>
+                        </div>
+                    </article>
 
-    <!-- ===== PREGUNTAS FRECUENTES ===== -->
-    <section class="faq" id="faq">
-        <div class="container">
-            <header class="section-header">
-                <p class="section-eyebrow">Preguntas frecuentes</p>
-                <h2 class="section-title">Todo lo que necesitás saber</h2>
-            </header>
-            <div class="faq__list">
-                <details class="faq-item">
-                    <summary>¿Cómo me registro en UbiCat?</summary>
-                    <p>Es muy sencillo. Completá el formulario con tu nombre, email y teléfono. Verificamos tu identidad para mantener la comunidad segura. Una vez verificado, ya podés empezar a usar la app.</p>
-                </details>
-                <details class="faq-item">
-                    <summary>¿Es gratuita la aplicación?</summary>
-                    <p>Sí, UbiCat es completamente gratuita. No tiene costos de registro ni de uso. Nuestra misión es ayudar a las mascotas perdidas y fomentar la adopción responsable.</p>
-                </details>
-                <details class="faq-item">
-                    <summary>¿Cómo garantizan la seguridad de los datos?</summary>
-                    <p>Utilizamos verificación de identidad mediante email y teléfono. Los chats son privados y encriptados. Además, contamos con un sistema de reputación para identificar usuarios confiables.</p>
-                </details>
-                <details class="faq-item">
-                    <summary>¿Puedo reportar un avistamiento sin registrarme?</summary>
-                    <p>Para mantener la calidad de los reportes, es necesario estar registrado. Así evitamos avistamientos falsos y protegemos a los animales.</p>
-                </details>
-                <details class="faq-item">
-                    <summary>¿Qué hago si encuentro una mascota perdida?</summary>
-                    <p>Entrá a la app, seleccioná "Encontrado", subí una foto clara, indicá la ubicación y describí el animal. La app cruzará los datos con reportes de mascotas perdidas cercanas.</p>
-                </details>
-                <details class="faq-item">
-                    <summary>¿Cómo funciona el mapa colaborativo?</summary>
-                    <p>Cada avistamiento que reportes se geolocaliza y se suma al mapa. Esto permite trazar rutas probables y acercar los reencuentros.</p>
-                </details>
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- ===== REGISTRO ===== -->
-    <section class="registro" id="registro">
-        <div class="container registro__inner">
-            <div class="registro__copy">
-                <p class="section-eyebrow">Unite a la red</p>
-                <h2>Registrate ahora.<br><em>Protejamos juntos.</em></h2>
-                <p>Completá tus datos y empezá a usar UbiCat en menos de un minuto.</p>
-                <ul class="registro__items">
-                    <li><span class="registro__bullet">*</span> Registro rápido y sin costo</li>
-                    <li><span class="registro__bullet">*</span> Verificación de identidad incluida</li>
-                    <li><span class="registro__bullet">*</span> Conectás con refugios y voluntarios</li>
-                </ul>
+        <!-- ===== COMUNIDAD — Solo testimonios ===== -->
+        <section class="impacto" id="impacto" aria-labelledby="impacto-title">
+            <div class="container">
+                <header class="section-header section-header--light reveal">
+                    <p class="section-eyebrow">Comunidad que cuida</p>
+                    <h2 class="section-title" id="impacto-title">Gente real, historias reales</h2>
+                </header>
+                <div class="impacto__testimonios">
+                    <blockquote class="testimonio-card reveal">
+                        <p>"Publicamos a Toby como perdido a las 8 de la mañana. A las 11 ya estaba en casa. Tres vecinos avisaron por la app."</p>
+                        <footer><cite>Florencia · Ramos Mejía</cite></footer>
+                    </blockquote>
+                    <blockquote class="testimonio-card reveal">
+                        <p>"Ofrecí tránsito sin saber si podía. La app me guió paso a paso y en dos semanas Nina ya tenía adoptante."</p>
+                        <footer><cite>Matías · Castelar</cite></footer>
+                    </blockquote>
+                    <blockquote class="testimonio-card reveal">
+                        <p>"Adopté a Simón con seguimiento post-adopción incluido. Hoy duerme a los pies de la cama y es el rey de la casa."</p>
+                        <footer><cite>Carla · Ituzaingó</cite></footer>
+                    </blockquote>
+                </div>
             </div>
+        </section>
 
-            <div class="registro__form-wrap">
-                <form class="registro-form" id="registro-form" novalidate>
-                    <div class="form-row">
+        <!-- ===== FAQ ===== -->
+        <section class="faq" id="faq" aria-labelledby="faq-title">
+            <div class="container">
+                <header class="section-header reveal">
+                    <p class="section-eyebrow">Preguntas frecuentes</p>
+                    <h2 class="section-title" id="faq-title">Lo que suele preguntarse</h2>
+                </header>
+                <div class="faq__list">
+                    <details class="faq-item reveal">
+                        <summary>¿Cuánto tarda registrarme?</summary>
+                        <p>Menos de un minuto. Completás nombre, email y teléfono. Verificamos tu identidad para que todos operen con confianza.</p>
+                    </details>
+                    <details class="faq-item reveal">
+                        <summary>¿Tiene algún costo?</summary>
+                        <p>No. UbiCat es gratuita. Podés usar las cuatro funciones — Perdido, Adopción, Tránsito y Rescate — sin pagar nada.</p>
+                    </details>
+                    <details class="faq-item reveal">
+                        <summary>¿Cómo protegen mis datos?</summary>
+                        <p>Verificamos email y teléfono. Los chats son privados. Además, cada usuario tiene reputación visible para detectar perfiles poco confiables.</p>
+                    </details>
+                    <details class="faq-item reveal">
+                        <summary>¿Puedo usar la app sin registrarme?</summary>
+                        <p>Para mantener alertas confiables, necesitás una cuenta verificada. Así evitamos reportes falsos que retrasan los casos reales.</p>
+                    </details>
+                    <details class="faq-item reveal">
+                        <summary>¿Cuál botón uso si perdí a mi perro?</summary>
+                        <p>El botón rojo <strong>Perdido</strong>. Subís foto, datos y última ubicación vista. La alerta llega a personas cercanas que pueden avisar si lo ven.</p>
+                    </details>
+                    <details class="faq-item reveal">
+                        <summary>¿Qué es el tránsito y cuánto dura?</summary>
+                        <p>Es acoger temporalmente a un perro rescatado mientras encuentra hogar definitivo. Vos definís tu disponibilidad al usar el botón azul <strong>Tránsito</strong>.</p>
+                    </details>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== REGISTRO — Solo alta de cuenta ===== -->
+        <section class="registro" id="registro" aria-labelledby="registro-title">
+            <div class="container registro__inner">
+                <div class="registro__copy reveal">
+                    <p class="section-eyebrow">Sumate hoy</p>
+                    <h2 id="registro-title">Creá tu cuenta y<br><em>empezá a usar la app.</em></h2>
+                    <p>Registrate acá o descargá UbiCat en tu celular. Las cuatro funciones están adentro de la app.</p>
+                    <ul class="registro__items">
+                        <li>Registro gratis y verificado</li>
+                        <li>Alertas geolocalizadas cerca tuyo</li>
+                        <li>Perdido, Adopción, Tránsito y Rescate</li>
+                    </ul>
+                    <a href="#descargar" class="btn btn--outline" id="descargar">Descargar la app</a>
+                </div>
+
+                <div class="registro__form-wrap reveal">
+                    <form class="registro-form" id="registro-form" novalidate>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="nombre">Nombre y apellido <span aria-hidden="true">*</span></label>
+                                <input type="text" id="nombre" name="nombre" autocomplete="name" required placeholder="María García">
+                                <span class="field-error" role="alert"></span>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email <span aria-hidden="true">*</span></label>
+                                <input type="email" id="email" name="email" autocomplete="email" required placeholder="ejemplo@correo.com">
+                                <span class="field-error" role="alert"></span>
+                            </div>
+                        </div>
                         <div class="form-group">
-                            <label for="nombre">Nombre y apellido <span aria-hidden="true">*</span></label>
-                            <input type="text" id="nombre" name="nombre" autocomplete="name" required placeholder="María García">
+                            <label for="telefono">WhatsApp / Teléfono</label>
+                            <input type="tel" id="telefono" name="telefono" autocomplete="tel" placeholder="11 1234 5678">
                             <span class="field-error" role="alert"></span>
                         </div>
-                        <div class="form-group">
-                            <label for="email">Email <span aria-hidden="true">*</span></label>
-                            <input type="email" id="email" name="email" autocomplete="email" required placeholder="ejemplo@correo.com">
-                            <span class="field-error" role="alert"></span>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="telefono">WhatsApp / Teléfono</label>
-                        <input type="tel" id="telefono" name="telefono" autocomplete="tel" placeholder="11 1234 5678">
-                        <span class="field-error" role="alert"></span>
-                    </div>
-                    <button type="submit" class="btn btn--primary btn--full btn--lg" id="submit-btn">
-                        <span class="btn__text">Crear cuenta gratis</span>
-                        <span class="btn__loading" hidden aria-hidden="true">Enviando…</span>
-                    </button>
-                    <p class="form-disclaimer">Al registrarte aceptás nuestros términos y condiciones. Tus datos están protegidos.</p>
-                    <div class="form-success" id="form-success" hidden role="alert">
-                        <svg width="22" height="22" viewBox="0 0 22 22" fill="none" aria-hidden="true"><circle cx="11" cy="11" r="9" stroke="currentColor" stroke-width="1.5"/><path d="M7 11l3 3 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                        <p>¡Registro exitoso! Te llegará un email de confirmación.</p>
-                    </div>
-                </form>
+                        <button type="submit" class="btn btn--primary btn--full btn--lg" id="submit-btn">
+                            <span class="btn__text">Crear mi cuenta gratis</span>
+                            <span class="btn__loading" hidden aria-hidden="true">Enviando…</span>
+                        </button>
+                        <p class="form-disclaimer">Al registrarte aceptás nuestros <a href="#terminos">términos</a> y <a href="#privacidad">política de privacidad</a>.</p>
+                    </form>
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
+
+    </main>
 
     <!-- ===== FOOTER ===== -->
     <footer class="footer">
         <div class="container footer__inner">
             <div class="footer__brand">
-                <div class="footer__logo-line">
-                    <span class="footer__logo-text">UbiCat</span>
-                </div>
-                <p>La red social que protege a los que no tienen voz.</p>
+                <p class="footer__logo" aria-label="UbiCat">
+                    <span class="brand-text">Ub<span class="brand-pin" aria-hidden="true">i</span>Cat</span>
+                </p>
+                <p class="footer__tagline">Conectamos perros que necesitan ayuda con personas que pueden darla.</p>
             </div>
-            <nav class="footer__nav" aria-label="Footer">
+            <nav class="footer__nav" aria-label="Enlaces del sitio">
                 <a href="#proceso">Cómo funciona</a>
-                <a href="#funcionalidades">Funciones</a>
-                <a href="#testimonios">Historias</a>
-                <a href="#faq">Preguntas frecuentes</a>
+                <a href="#funciones">Funciones</a>
+                <a href="#impacto">Comunidad</a>
+                <a href="#faq">Preguntas</a>
                 <a href="#registro">Registro</a>
             </nav>
-            <div class="footer__contact">
-                <p>contacto@ubicat.com.ar</p>
-                <p>+54 9 11 XXXX-XXXX</p>
+            <div class="footer__social-wrap">
+                <p class="footer__social-label">Seguinos</p>
                 <div class="footer__social" aria-label="Redes sociales">
-                    <a href="https://www.instagram.com/ubi.cat/" class="social-link" aria-label="Instagram de UbiCat">
+                    <a href="https://www.instagram.com/ubi.cat/" class="social-link" aria-label="Instagram de UbiCat" target="_blank" rel="noopener noreferrer">
                         <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
                     </a>
                     <a href="#" class="social-link" aria-label="Facebook de UbiCat">
@@ -287,15 +360,20 @@
             </div>
         </div>
         <div class="footer__bottom">
-            <div class="container">
+            <div class="container footer__bottom-inner">
                 <p>UbiCat &copy; 2026 — Todos los derechos reservados.</p>
+                <nav class="footer__legal" aria-label="Enlaces legales">
+                    <a href="#terminos" id="terminos">Términos y condiciones</a>
+                    <a href="#privacidad" id="privacidad">Política de privacidad</a>
+                    <a href="#cookies">Cookies</a>
+                </nav>
             </div>
         </div>
     </footer>
 
     <!-- ===== STICKY BAR MOBILE ===== -->
     <div class="sticky-bar" id="sticky-bar" aria-hidden="true">
-        <a href="#registro" class="btn btn--primary btn--full">Registrarse gratis</a>
+        <a href="#registro" class="btn btn--primary btn--full">Registrarme</a>
     </div>
 
     <script src="script.js" defer></script>

@@ -1,7 +1,7 @@
 (function () {
     'use strict';
 
-    // Header: sombra al hacer scroll
+    /* ===== HEADER — Sombra al hacer scroll ===== */
     const header = document.getElementById('header');
     if (header) {
         window.addEventListener('scroll', () => {
@@ -9,9 +9,10 @@
         }, { passive: true });
     }
 
-    // Menú mobile
+    /* ===== MENÚ MOBILE ===== */
     const toggle = document.querySelector('.nav-toggle');
     const mobileNav = document.getElementById('mobile-nav');
+
     if (toggle && mobileNav) {
         toggle.addEventListener('click', () => {
             const expanded = toggle.getAttribute('aria-expanded') === 'true';
@@ -19,6 +20,7 @@
             toggle.classList.toggle('open', !expanded);
             mobileNav.hidden = expanded;
         });
+
         mobileNav.querySelectorAll('a[href^="#"]').forEach(link => {
             link.addEventListener('click', () => {
                 toggle.setAttribute('aria-expanded', 'false');
@@ -28,24 +30,24 @@
         });
     }
 
-    // Sticky bar: ocultar al llegar al formulario de registro
+    /* ===== STICKY BAR — Ocultar al llegar al registro ===== */
     const stickyBar = document.getElementById('sticky-bar');
     const registroSection = document.getElementById('registro');
+
     if (stickyBar && registroSection) {
-        const observer = new IntersectionObserver(
+        const stickyObserver = new IntersectionObserver(
             ([entry]) => {
                 stickyBar.classList.toggle('hidden', entry.isIntersecting);
                 stickyBar.setAttribute('aria-hidden', String(entry.isIntersecting));
             },
             { threshold: 0.1 }
         );
-        observer.observe(registroSection);
+        stickyObserver.observe(registroSection);
     }
 
-    // Formulario de registro
+    /* ===== FORMULARIO DE REGISTRO ===== */
     const form = document.getElementById('registro-form');
     const submitBtn = document.getElementById('submit-btn');
-    const successMsg = document.getElementById('form-success');
 
     if (form) {
         form.querySelectorAll('[required]').forEach(field => {
@@ -58,16 +60,17 @@
         form.addEventListener('submit', (e) => {
             e.preventDefault();
             let isValid = true;
+
             form.querySelectorAll('[required]').forEach(field => {
                 if (!validateField(field)) isValid = false;
             });
+
             if (!isValid) {
                 const firstInvalid = form.querySelector('.invalid');
                 if (firstInvalid) firstInvalid.focus();
                 return;
             }
 
-            // Simular envío exitoso
             if (submitBtn) {
                 const textEl = submitBtn.querySelector('.btn__text');
                 const loadingEl = submitBtn.querySelector('.btn__loading');
@@ -81,12 +84,7 @@
                     if (textEl) textEl.hidden = false;
                     submitBtn.disabled = false;
                     submitBtn.style.opacity = '1';
-
-                    if (successMsg) {
-                        successMsg.hidden = false;
-                        form.querySelectorAll('input').forEach(el => el.disabled = true);
-                        successMsg.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-                    }
+                    /* El mensaje de confirmación se muestra dentro de la app tras el registro real */
                 }, 1500);
             }
         });
@@ -95,30 +93,39 @@
     function validateField(field) {
         const errorEl = field.parentElement.querySelector('.field-error');
         let msg = '';
+
         if (!field.value.trim()) {
             msg = 'Este campo es obligatorio.';
         } else if (field.type === 'email' && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(field.value.trim())) {
             msg = 'Ingresá un email válido.';
         }
+
         field.classList.toggle('invalid', !!msg);
         if (errorEl) errorEl.textContent = msg;
         return !msg;
     }
 
-    // Animaciones de entrada con IntersectionObserver
-    const animEls = document.querySelectorAll('.func-card, .proceso-step, .testimonio-card, .faq-item');
-    if ('IntersectionObserver' in window && animEls.length) {
-        const animObserver = new IntersectionObserver(
+    /* ===== SCROLL REVEAL ===== */
+    const revealEls = document.querySelectorAll('.reveal');
+
+    if ('IntersectionObserver' in window && revealEls.length) {
+        const revealObserver = new IntersectionObserver(
             (entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
-                        entry.target.classList.add('animate-up');
-                        animObserver.unobserve(entry.target);
+                        entry.target.classList.add('is-visible');
+                        revealObserver.unobserve(entry.target);
                     }
                 });
             },
-            { threshold: 0.12 }
+            { threshold: 0.1, rootMargin: '0px 0px -40px 0px' }
         );
-        animEls.forEach(el => animObserver.observe(el));
+
+        revealEls.forEach((el, i) => {
+            el.style.transitionDelay = `${Math.min(i % 4, 3) * 0.08}s`;
+            revealObserver.observe(el);
+        });
+    } else {
+        revealEls.forEach(el => el.classList.add('is-visible'));
     }
 })();
